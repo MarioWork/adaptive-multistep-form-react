@@ -1,0 +1,38 @@
+{
+  "form": {
+    "groups": [
+      {
+        "id": 1,
+        "title": "Test Group 1",
+        "questions": [
+          {
+            "id": 1,
+            "title": "What is your first name?",
+            "type": "text"
+          },
+          {
+            "id": 2,
+            "title": "What is your last name?",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Test Group 2",
+        "questions": [
+          {
+            "id": 3,
+            "title": "What is your birth date?",
+            "type": "date"
+          },
+          {
+            "id": 4,
+            "title": "Give me a random number",
+            "type": "number"
+          }
+        ]
+      }
+    ]
+  }
+}
