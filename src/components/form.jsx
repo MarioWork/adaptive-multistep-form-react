@@ -12,8 +12,8 @@ const Form = ({ form }) => {
         <h4>{group?.title}</h4>
         <main></main>
         <footer>
-          <button onClick={onPrevious}>previous</button>
-          <button onClick={onNext}>next</button>
+          <button onClick={onPrevious}>Previous</button>
+          <button onClick={onNext}>Next</button>
         </footer>
       </StyledGroup>
     </StyledForm>
@@ -64,6 +64,16 @@ const StyledGroup = styled.article`
     button {
       height: 40px;
       width: 150px;
+      border: none;
+      border-radius: 25px;
+      background-color: blue;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.7;
     }
   }
 `;
