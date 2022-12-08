@@ -1,20 +1,33 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import { shape, string, number, arrayOf } from "prop-types";
 
+const Actions = {
+    NEXT: "next",
+    PREVIOUS: "previous",
+}
 
 const useMultiStepForm = ({ groups }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
 
-    const onNext = () =>
-        setCurrentIndex((index) => (index + 1 < groups.length ? index + 1 : index));
+    const initialState = { currentIndex: 0 }
 
-    const onPrevious = () =>
-        setCurrentIndex((index) => (index - 1 >= 0 ? index - 1 : index));
+    const canIncrement = (max, currentIndex) => currentIndex + 1 < max;
+    const canDecrement = (min, currentIndex) => currentIndex - 1 >= min;
+
+    const reducer = (state, action) => {
+        switch (action) {
+            case Actions.NEXT:
+                return canIncrement(groups.length, state.currentIndex) ? { ...state, currentIndex: state.currentIndex + 1 } : state;
+            case Actions.PREVIOUS:
+                return canDecrement(0, state.currentIndex) ? { ...state, currentIndex: state.currentIndex - 1 } : state;
+        }
+    }
+
+    const [state, dispatch] = useReducer(reducer, initialState);
 
     return {
-        group: groups[currentIndex],
-        onNext,
-        onPrevious,
+        group: groups[state.currentIndex],
+        onNext: () => dispatch(Actions.NEXT),
+        onPrevious: () => dispatch(Actions.PREVIOUS),
     };
 };
 
