@@ -7,7 +7,7 @@ const App = () => {
 
   return (
     <StyledGroup>
-      {group.title}
+      {group?.title}
       <button onClick={onPrevious}>previous</button>
       <button onClick={onNext}>next</button>
     </StyledGroup>
