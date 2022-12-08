@@ -1,5 +1,6 @@
 {
   "form": {
+    "id": 1,
     "title": "This is my form",
     "groups": [
       {
