@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { shape, string, number, arrayOf } from "prop-types";
+import formSchema from "../domain/form-prop-types";
 import useMultiStepForm from "../hooks/use-multi-step-form";
 
 const Form = ({ form }) => {
@@ -20,25 +20,7 @@ const Form = ({ form }) => {
   );
 };
 
-Form.propTypes = {
-  form: shape({
-    id: number,
-    title: string,
-    groups: arrayOf(
-      shape({
-        id: number,
-        title: string,
-        questions: arrayOf(
-          shape({
-            id: number,
-            title: string,
-            type: string,
-          })
-        ),
-      })
-    ),
-  }),
-};
+Form.propTypes = formSchema;
 
 const StyledForm = styled.main`
   width: 500px;

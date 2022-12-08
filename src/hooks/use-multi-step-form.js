@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { shape, string, number, arrayOf } from "prop-types";
+import formSchema from "../domain/form-prop-types";
 
 const Actions = {
     NEXT: "next",
@@ -31,22 +31,6 @@ const useMultiStepForm = ({ groups }) => {
     };
 };
 
-useMultiStepForm.propTypes = {
-    form: shape({
-        id: number,
-        title: string,
-        groups: arrayOf(shape({
-            id: number,
-            title: string,
-            questions: arrayOf(
-                shape({
-                    id: number,
-                    title: string,
-                    type: string
-                })
-            )
-        }))
-    })
-}
+useMultiStepForm.propTypes = formSchema;
 
 export default useMultiStepForm;
