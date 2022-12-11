@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import formSchema from "../domain/form-prop-types";
+import formSchema from "../schemas/form-prop-types";
 import useMultiStepForm from "../hooks/use-multi-step-form";
+import QuestionList from "./question-list";
 
 const Form = ({ form }) => {
   const { group, onNext, onPrevious } = useMultiStepForm(form);
@@ -10,7 +11,9 @@ const Form = ({ form }) => {
       <h1>{form?.title}</h1>
       <StyledGroup>
         <h4>{group?.title}</h4>
-        <main></main>
+        <main>
+          <QuestionList questions={group?.questions} />
+        </main>
         <footer>
           <button onClick={onPrevious}>Previous</button>
           <button onClick={onNext}>Next</button>
@@ -30,6 +33,7 @@ const StyledForm = styled.main`
   flex-direction: column;
   align-items: center;
   padding: 1em;
+  padding-top: 2em;
   border-radius: 25px;
   box-shadow: 0px 0px 100px 0px #ffffff3f;
   background: #bebebe;
@@ -46,10 +50,9 @@ const StyledGroup = styled.article`
   main {
     width: 100%;
     max-width: 100%;
-    min-height: 75%;
-    max-height: 75%;
+    min-height: 85%;
+    max-height: 85%;
     display: flex;
-    margin: 1em;
     padding: 1em;
     flex-direction: column;
     overflow-y: auto;
@@ -58,9 +61,7 @@ const StyledGroup = styled.article`
   footer {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
     width: 100%;
-    height: 10%;
 
     button {
       height: 40px;
