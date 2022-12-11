@@ -30,8 +30,9 @@ const StyledForm = styled.main`
   flex-direction: column;
   align-items: center;
   padding: 1em;
-  border: 1px solid black;
   border-radius: 25px;
+  box-shadow: 0px 0px 100px 0px #ffffff3f;
+  background: #bebebe;
 `;
 
 const StyledGroup = styled.article`
@@ -66,9 +67,10 @@ const StyledGroup = styled.article`
       width: 150px;
       border: none;
       border-radius: 25px;
-      background-color: blue;
+      background-color: #c69749;
       color: white;
       font-size: 1em;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
       cursor: pointer;
     }
 
