@@ -1,4 +1,5 @@
 import { shape, string, number, arrayOf } from "prop-types";
+import questionSchema from "../schemas/question-prop-types";
 
 export default {
     form: shape({
@@ -8,11 +9,7 @@ export default {
             id: number.isRequired,
             title: string,
             questions: arrayOf(
-                shape({
-                    id: number.isRequired,
-                    title: string.isRequired,
-                    type: string.isRequired
-                }).isRequired
+                questionSchema
             ).isRequired
         }).isRequired
         ).isRequired
