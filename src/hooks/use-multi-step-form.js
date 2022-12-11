@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import formSchema from "../domain/form-prop-types";
+import formSchema from "../schemas/form-prop-types";
 
 const Actions = {
     NEXT: "next",
