@@ -1,6 +1,9 @@
 ### dotenv ###
 .env
 
+### Build ###
+/Build/
+
 ### Linux ###
 *~
 
