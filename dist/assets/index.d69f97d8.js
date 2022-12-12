@@ -117,5 +117,6 @@ Error generating stack: `+o.message+`
         box-sizing: border-box;
         margin: 0;
         padding: 0;
+        background-color: red;
     }
 `;si.createRoot(document.getElementById("root")).render(wl(Vn.StrictMode,{children:[De(Qm,{}),De(Hm,{})]}));
