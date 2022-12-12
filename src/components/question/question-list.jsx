@@ -1,7 +1,7 @@
 import React from "react";
-import questionSchema from "../schemas/question-prop-types";
+import questionSchema from "../../schemas/question-prop-types";
 import { arrayOf } from "prop-types";
-import { QuestionType } from "../enum/question-types";
+import { QuestionType } from "../../enum/question-types";
 
 const questionMap = (question) => {
   const { id, type } = question;

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import formSchema from "../schemas/form-prop-types";
 import useMultiStepForm from "../hooks/use-multi-step-form";
-import QuestionList from "./question-list";
+import QuestionList from "./question/question-list";
 
 const Form = ({ form }) => {
   const { group, onNext, onPrevious } = useMultiStepForm(form);
