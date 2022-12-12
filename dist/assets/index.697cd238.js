@@ -118,9 +118,4 @@ Error generating stack: `+o.message+`
         margin: 0;
         padding: 0;
     }
-
-    body {
-        background-color: #282A3A;
-        height: 100%;
-    }
 `;si.createRoot(document.getElementById("root")).render(wl(Vn.StrictMode,{children:[De(Qm,{}),De(Hm,{})]}));
