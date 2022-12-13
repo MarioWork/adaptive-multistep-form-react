@@ -35,7 +35,7 @@ const StyledForm = styled.main`
   padding: 1em;
   padding-top: 2em;
   border-radius: 25px;
-  box-shadow: 0px 0px 100px 0px #ffffff3f;
+  box-shadow: rgb(153 153 153 / 25%) 10px 0px 70px;
   background: #bebebe;
 `;
 
