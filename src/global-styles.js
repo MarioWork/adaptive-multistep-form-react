@@ -6,6 +6,12 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
     }
+
+    body {
+        height: 100vh;
+        background-color: #282A3A;
+        padding-top: 5em;
+    }
 `;
 
 export default GlobalStyles;
