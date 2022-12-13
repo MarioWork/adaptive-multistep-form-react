@@ -24,6 +24,6 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git main
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:mariowork/multistep-form-react-hook.git main:gh-pages
+git push -f git@github.com:mariowork/adaptive-multistep-form-react.git main:gh-pages
 
 cd -

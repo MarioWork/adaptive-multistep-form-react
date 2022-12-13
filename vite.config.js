@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/multistep-form-react-hook",
+  base: "/adaptive-multistep-form-react",
   plugins: [react()]
 })
