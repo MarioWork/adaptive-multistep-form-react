@@ -12,7 +12,10 @@ const Form = ({ form }) => {
       <h1>{form.title}</h1>
       {form?.description && <h5>{form.description}</h5>}
       <StyledGroup>
-        {group?.title && <h3>{group.title}</h3>}
+        <header>
+          {group?.title && <h3>{group.title}</h3>}
+          {group?.description && <h5>{group.description}</h5>}
+        </header>
         <main>
           <QuestionList questions={group?.questions} />
         </main>
@@ -31,8 +34,8 @@ export default Form;
 
 const StyledForm = styled.main`
   width: 500px;
-  min-height: 600px;
-  max-height: 600px;
+  min-height: 800px;
+  max-height: 800px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,6 +45,20 @@ const StyledForm = styled.main`
   border-radius: 25px;
   box-shadow: rgb(153 153 153 / 25%) 10px 0px 70px;
   background: #bebebe;
+
+  h1,
+  h5 {
+    opacity: 0.7;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  h1 {
+    opacity: 1;
+  }
 `;
 
 const StyledGroup = styled.article`
@@ -49,9 +66,30 @@ const StyledGroup = styled.article`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 90%;
+  min-height: 90%;
+  max-height: 90%;
   padding-top: 1em;
-  gap: 10px;
+
+  header {
+    min-height: 10%;
+    max-height: 10%;
+    max-width: 100%;
+    text-align: center;
+
+    h3,
+    h5 {
+      opacity: 0.7;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    h3 {
+      opacity: 1;
+    }
+  }
 
   main {
     width: 100%;
@@ -59,7 +97,7 @@ const StyledGroup = styled.article`
     min-height: 85%;
     max-height: 85%;
     display: flex;
-    padding: 1em;
+    padding: 0.5em;
     flex-direction: column;
     overflow-y: auto;
   }
@@ -68,6 +106,8 @@ const StyledGroup = styled.article`
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    min-height: 10%;
+    max-height: 10%;
 
     button {
       height: 40px;
