@@ -4,7 +4,7 @@ import questionSchema from "../schemas/question-prop-types";
 export default {
     form: shape({
         id: number.isRequired,
-        title: string,
+        title: string.isRequired,
         description: string,
         groups: arrayOf(shape({
             id: number.isRequired,
