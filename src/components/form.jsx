@@ -50,7 +50,7 @@ const StyledGroup = styled.article`
   align-items: center;
   width: 100%;
   height: 90%;
-  padding-top: 0.5em;
+  padding-top: 1em;
   gap: 10px;
 
   main {
