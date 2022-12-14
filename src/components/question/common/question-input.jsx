@@ -1,4 +1,5 @@
 import { string } from "prop-types";
+import styled from "styled-components";
 
 const QuestionInput = ({ type }) => {
   return <StyledInput type={type} />;
