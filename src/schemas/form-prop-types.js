@@ -5,9 +5,11 @@ export default {
     form: shape({
         id: number.isRequired,
         title: string,
+        description: string,
         groups: arrayOf(shape({
             id: number.isRequired,
             title: string,
+            description: string,
             questions: arrayOf(
                 questionSchema
             ).isRequired

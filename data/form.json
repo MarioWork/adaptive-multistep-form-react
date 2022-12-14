@@ -2,19 +2,23 @@
   "form": {
     "id": 1,
     "title": "This is my form",
+    "description": "This is a description for the form",
     "groups": [
       {
         "id": 1,
         "title": "Test Group 1",
+        "description": "This is my first group description",
         "questions": [
           {
             "id": 1,
             "title": "What is your first name?",
+            "description": "(Please enter only your first name)",
             "type": "text"
           },
           {
             "id": 2,
             "title": "What is your last name?",
+            "description": "(Please enter only your last name)",
             "type": "text"
           }
         ]
@@ -22,6 +26,7 @@
       {
         "id": 2,
         "title": "Test Group 2",
+        "description": "This is my second group description",
         "questions": [
           {
             "id": 3,
