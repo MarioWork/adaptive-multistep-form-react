@@ -9,9 +9,10 @@ const Form = ({ form }) => {
 
   return (
     <StyledForm>
-      <h1>{form?.title}</h1>
+      <h1>{form.title}</h1>
+      {form?.description && <h5>{form.description}</h5>}
       <StyledGroup>
-        {group?.title && <h4>{group.title}</h4>}
+        {group?.title && <h3>{group.title}</h3>}
         <main>
           <QuestionList questions={group?.questions} />
         </main>
@@ -37,6 +38,7 @@ const StyledForm = styled.main`
   align-items: center;
   padding: 1em;
   padding-top: 2em;
+  padding-bottom: 2em;
   border-radius: 25px;
   box-shadow: rgb(153 153 153 / 25%) 10px 0px 70px;
   background: #bebebe;
@@ -47,8 +49,9 @@ const StyledGroup = styled.article`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 90%;
   padding-top: 0.5em;
+  gap: 10px;
 
   main {
     width: 100%;
