@@ -34,8 +34,8 @@ export default Form;
 
 const StyledForm = styled.main`
   width: 500px;
-  min-height: 800px;
-  max-height: 800px;
+  min-height: 600px;
+  max-height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -105,7 +105,9 @@ const StyledGroup = styled.article`
   footer {
     display: flex;
     justify-content: space-evenly;
+    align-items: flex-end;
     width: 100%;
+    padding-bottom: 1em;
     min-height: 10%;
     max-height: 10%;
 
