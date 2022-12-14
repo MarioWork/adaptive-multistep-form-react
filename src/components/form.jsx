@@ -6,11 +6,12 @@ import QuestionList from "./question/question-list";
 
 const Form = ({ form }) => {
   const { group, onNext, onPrevious } = useMultiStepForm(form);
+
   return (
     <StyledForm>
       <h1>{form?.title}</h1>
       <StyledGroup>
-        <h4>{group?.title}</h4>
+        {group?.title && <h4>{group.title}</h4>}
         <main>
           <QuestionList questions={group?.questions} />
         </main>
@@ -24,6 +25,8 @@ const Form = ({ form }) => {
 };
 
 Form.propTypes = formSchema;
+
+export default Form;
 
 const StyledForm = styled.main`
   width: 500px;
@@ -80,5 +83,3 @@ const StyledGroup = styled.article`
     }
   }
 `;
-
-export default Form;
