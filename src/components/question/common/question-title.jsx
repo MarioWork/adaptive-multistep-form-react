@@ -3,11 +3,11 @@ import { string } from "prop-types";
 import styled from "styled-components";
 
 const QuestionTitle = ({ title }) => {
-  return <StyledTitle>{title}</StyledTitle>;
+  if (title) return <StyledTitle>{title}</StyledTitle>;
 };
 
 QuestionTitle.propTypes = {
-  title: string.isRequired,
+  title: string,
 };
 
 const StyledTitle = styled.h4`
