@@ -1,11 +1,11 @@
 import { shape, string, number, arrayOf } from "prop-types";
-import groupSchema from "../schemas/group-prop-types";
+import questionSchema from "./question-prop-types";
 
 export default shape({
     id: number.isRequired,
-    title: string.isRequired,
+    title: string,
     description: string,
-    groups: arrayOf(groupSchema
+    questions: arrayOf(
+        questionSchema
     ).isRequired
 }).isRequired
-

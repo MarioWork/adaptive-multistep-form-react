@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import QuestionList from "./question/question-list";
+import groupSchema from "../schemas/group-prop-types";
 
 const Group = ({ group }) => {
   const { title, description, questions } = group;
@@ -16,7 +17,7 @@ const Group = ({ group }) => {
   );
 };
 
-Group.propTypes = {};
+Group.propTypes = { group: groupSchema };
 
 export default Group;
 
@@ -25,8 +26,8 @@ const StyledGroup = styled.article`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding-top: 1em;
   height: 100%;
+  padding-top: 1em;
 
   header {
     min-height: 10%;

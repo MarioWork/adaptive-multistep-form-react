@@ -24,7 +24,7 @@ const Form = ({ form }) => {
   );
 };
 
-Form.propTypes = formSchema;
+Form.propTypes = { form: formSchema };
 
 export default Form;
 
