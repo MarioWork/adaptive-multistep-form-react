@@ -5,6 +5,7 @@ import { QuestionType } from "../../enum/question-types";
 import TextQuestion from "./text-question";
 import NumberQuestion from "./number-question";
 import DateQuestion from "./date-question";
+import BooleanQuestion from "./number-question";
 
 const questionMap = (question) => {
   const { id, type } = question;
@@ -15,6 +16,8 @@ const questionMap = (question) => {
       return <NumberQuestion key={id} question={question} />;
     case QuestionType.DATE:
       return <DateQuestion key={id} question={question} />;
+    case QuestionType.BOOLEAN:
+      return <BooleanQuestion key={id} question={question} />;
   }
 };
 

@@ -1,5 +1,6 @@
 export const QuestionType = {
     TEXT: "text",
     DATE: "date",
-    NUMBER: "number"
+    NUMBER: "number",
+    BOOLEAN: "boolean"
 };
