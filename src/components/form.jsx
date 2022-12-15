@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+
 import formSchema from "../schemas/form-prop-types";
+
 import useMultiStepForm from "../hooks/use-multi-step-form";
+
 import Group from "./group";
+import Button from "./common/button";
 
 const Form = ({ form }) => {
   const { group, onNext, onPrevious } = useMultiStepForm(form);
@@ -17,8 +21,8 @@ const Form = ({ form }) => {
         <Group group={group} />
       </main>
       <footer>
-        <button onClick={onPrevious}>Previous</button>
-        <button onClick={onNext}>Next</button>
+        <Button onClick={onPrevious} text="Previous" />
+        <Button onClick={onNext} text="Next" />
       </footer>
     </StyledForm>
   );
@@ -77,21 +81,5 @@ const StyledForm = styled.main`
     padding-bottom: 1em;
     min-height: 10%;
     max-height: 10%;
-
-    button {
-      height: 40px;
-      width: 150px;
-      border: none;
-      border-radius: 25px;
-      background-color: #c69749;
-      color: white;
-      font-size: 1em;
-      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-      cursor: pointer;
-    }
-
-    button:hover {
-      opacity: 0.7;
-    }
   }
 `;
