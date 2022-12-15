@@ -6,7 +6,8 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: "Roboto", sans-serif;
-        color: #282a3a;
+        color: #282A3A;
+        font-weight: 500;
 
     }
 
