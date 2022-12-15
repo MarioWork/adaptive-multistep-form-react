@@ -1,13 +1,13 @@
 {
   "form": {
     "id": 1,
-    "title": "This is my form",
-    "description": "This is a description for the form",
+    "title": "Personal Info",
+    "description": "( This is form was created to gather basic personal info )",
     "groups": [
       {
         "id": 1,
-        "title": "Test Group 1",
-        "description": "This is my first group description",
+        "title": "Users Name",
+        "description": "( Please answer the questions bellow )",
         "questions": [
           {
             "id": 1,
@@ -20,23 +20,45 @@
             "title": "What is your last name?",
             "description": "(Please enter only your last name)",
             "type": "text"
+          },
+          {
+            "id": 3,
+            "title": "When is your birth date?",
+            "type": "date"
           }
         ]
       },
       {
         "id": 2,
-        "title": "Test Group 2",
-        "description": "This is my second group description",
+        "title": "Users Family Situation",
+        "description": "( Please answer the questions bellow about your family situation )",
         "questions": [
           {
-            "id": 3,
-            "title": "What is your birth date?",
-            "type": "date"
+            "id": 4,
+            "title": "Do you live with your family?",
+            "description": "( Select the proper answer )",
+            "type": "boolean"
           },
           {
-            "id": 4,
-            "title": "Give me a random number",
+            "id": 5,
+            "title": "With how many family members do you live with?",
             "type": "number"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Current Users  Situation",
+        "questions": [
+          {
+            "id": 6,
+            "title": "Are you unemployed?",
+            "type": "boolean"
+          },
+          {
+            "id": 7,
+            "title": "Have you finished HighSchool?",
+            "type": "boolean"
           }
         ]
       }
