@@ -9,7 +9,7 @@ import Group from "./group";
 import Button from "./common/button";
 
 const Form = ({ form }) => {
-  const { group, onNext, onPrevious } = useMultiStepForm(form);
+  const { group, onNext, onPrevious, onAnswer } = useMultiStepForm(form);
 
   return (
     <StyledForm>

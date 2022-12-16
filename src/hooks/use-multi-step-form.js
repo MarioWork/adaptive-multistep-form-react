@@ -11,13 +11,15 @@ const useMultiStepForm = ({ groups }) => {
 
     const initialState = { currentIndex: 0, answers: [] }
 
-    const canNext = (max, currentIndex) => currentIndex + 1 < max;
+    const canNext = (max, { currentIndex, answers }) =>
+        currentIndex + 1 < max && answers.length == groups[currentIndex].questions.length;
+
     const canPrevious = (min, currentIndex) => currentIndex - 1 >= min;
 
     const reducer = (state, { action, payload }) => {
         switch (action) {
             case Actions.NEXT:
-                return canNext(groups.length, state.currentIndex) ? { ...state, currentIndex: state.currentIndex + 1 } : state;
+                return canNext(groups.length, state) ? { ...state, currentIndex: state.currentIndex + 1 } : state;
             case Actions.PREVIOUS:
                 return canPrevious(0, state.currentIndex) ? { ...state, currentIndex: state.currentIndex - 1 } : state;
         }
