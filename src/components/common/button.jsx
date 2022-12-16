@@ -1,10 +1,10 @@
 import React from "react";
-import { string, func, number, oneOfType } from "prop-types";
+import { string, func } from "prop-types";
 import styled from "styled-components";
 
-const Button = ({ text, onClick, size }) => {
+const Button = ({ text, onClick, width, height }) => {
   return (
-    <StyledButton onClick={onClick} size={size}>
+    <StyledButton onClick={onClick} width={width} height={height}>
       {text}
     </StyledButton>
   );
@@ -14,13 +14,14 @@ Button.propTypes = {
   text: string.isRequired,
   onClick: func.isRequired,
   size: string,
+  height: string,
 };
 
 export default Button;
 
 const StyledButton = styled.button`
-  height: 40px;
-  width: ${(props) => props.size ?? "150px"};
+  height: ${({ height }) => height ?? "40px"};
+  width: ${({ width }) => width ?? "150px"};
   border: none;
   border-radius: 25px;
   background-color: #c69749;
@@ -34,4 +35,7 @@ const StyledButton = styled.button`
   }
 `;
 
-StyledButton.propTypes = { size: string };
+StyledButton.propTypes = {
+  width: string,
+  height: string,
+};

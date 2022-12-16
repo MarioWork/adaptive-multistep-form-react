@@ -10,8 +10,8 @@ const BooleanQuestion = ({ question }) => {
     <QuestionContainer>
       <QuestionTitle title={question.title} />
       <StyledButtonContainer>
-        <Button text="yes" onClick={() => {}} size="100px" />
-        <Button text="no" onClick={() => {}} size="100px" />
+        <Button text="yes" onClick={() => {}} width="100px" height="30px" />
+        <Button text="no" onClick={() => {}} width="100px" height="30px" />
       </StyledButtonContainer>
     </QuestionContainer>
   );
