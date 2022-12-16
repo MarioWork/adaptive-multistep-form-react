@@ -9,19 +9,33 @@ const Actions = {
 
 const useMultiStepForm = ({ groups }) => {
 
-    const initialState = { currentIndex: 0, answers: [] }
+    const initialState = { currentIndex: 0, answers: {} };
+
 
     const canNext = (max, { currentIndex, answers }) =>
         currentIndex + 1 < max && answers.length == groups[currentIndex].questions.length;
 
     const canPrevious = (min, currentIndex) => currentIndex - 1 >= min;
 
+    //TODO Cleanup spread objects
     const reducer = (state, { action, payload }) => {
         switch (action) {
             case Actions.NEXT:
                 return canNext(groups.length, state) ? { ...state, currentIndex: state.currentIndex + 1 } : state;
             case Actions.PREVIOUS:
                 return canPrevious(0, state.currentIndex) ? { ...state, currentIndex: state.currentIndex - 1 } : state;
+            case Actions.ANSWER:
+                console.log(state);
+                return {
+                    ...state,
+                    answers: {
+                        ...state.answers,
+                        ["group" + groups[state.currentIndex].id]: {
+                            ...state.answers["group" + groups[state.currentIndex].id],
+                            ["question" + payload.questionId]: payload.answer
+                        }
+                    }
+                };
         }
     }
 
