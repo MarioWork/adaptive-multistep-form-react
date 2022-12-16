@@ -1,12 +1,22 @@
-import { string } from "prop-types";
+import { useContext } from "react";
+import { string, number } from "prop-types";
 import styled from "styled-components";
+import { onAnswerContext } from "../../form";
 
-const QuestionInput = ({ type }) => {
-  return <StyledInput type={type} />;
+const QuestionInput = ({ type, questionId }) => {
+  const { onAnswer } = useContext(onAnswerContext);
+
+  return (
+    <StyledInput
+      type={type}
+      onChange={({ target }) => onAnswer(questionId, target.value)}
+    />
+  );
 };
 
 QuestionInput.propTypes = {
   type: string.isRequired,
+  questionId: number.isRequired,
 };
 
 const StyledInput = styled.input`

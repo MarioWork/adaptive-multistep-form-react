@@ -8,7 +8,7 @@ const TextQuestion = ({ question }) => {
   return (
     <QuestionContainer>
       <QuestionTitle title={question.title} />
-      <QuestionInput type={QuestionType.TEXT} />
+      <QuestionInput type={QuestionType.TEXT} questionId={question.id} />
     </QuestionContainer>
   );
 };

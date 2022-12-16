@@ -1,4 +1,4 @@
-import React from "react";
+import { createContext } from "react";
 import styled from "styled-components";
 
 import formSchema from "../schemas/form-prop-types";
@@ -7,6 +7,8 @@ import useMultiStepForm from "../hooks/use-multi-step-form";
 
 import Group from "./group";
 import Button from "./common/button";
+
+const onAnswerContext = createContext();
 
 const Form = ({ form }) => {
   const { group, onNext, onPrevious, onAnswer } = useMultiStepForm(form);
@@ -18,7 +20,9 @@ const Form = ({ form }) => {
         {form?.description && <h5>{form.description}</h5>}
       </header>
       <main>
-        <Group group={group} />
+        <onAnswerContext.Provider value={{ onAnswer }}>
+          <Group group={group} />
+        </onAnswerContext.Provider>
       </main>
       <footer>
         <Button onClick={onPrevious} text="Previous" />
@@ -30,6 +34,7 @@ const Form = ({ form }) => {
 
 Form.propTypes = { form: formSchema };
 
+export { onAnswerContext };
 export default Form;
 
 const StyledForm = styled.main`
