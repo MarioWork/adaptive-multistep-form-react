@@ -1,11 +1,13 @@
 import React from "react";
-import questionSchema from "../../schemas/question-prop-types";
 import { arrayOf } from "prop-types";
+
 import { QuestionType } from "../../enum/question-types";
-import TextQuestion from "./text-question";
-import NumberQuestion from "./number-question";
-import DateQuestion from "./date-question";
-import BooleanQuestion from "./number-question";
+import questionSchema from "../../schemas/question-prop-types";
+
+import TextQuestion from "./type/text-question";
+import NumberQuestion from "./type/number-question";
+import DateQuestion from "./type/date-question";
+import BooleanQuestion from "./type/boolean-question";
 
 const questionMap = (question) => {
   const { id, type } = question;

@@ -1,18 +1,26 @@
 import React from "react";
-import { string, func } from "prop-types";
+import { string, func, number, oneOfType } from "prop-types";
 import styled from "styled-components";
 
-const Button = ({ text, onClick }) => {
-  return <StyledButton onClick={onClick}>{text}</StyledButton>;
+const Button = ({ text, onClick, size }) => {
+  return (
+    <StyledButton onClick={onClick} size={size}>
+      {text}
+    </StyledButton>
+  );
 };
 
-Button.propTypes = { text: string.isRequired, onClick: func.isRequired };
+Button.propTypes = {
+  text: string.isRequired,
+  onClick: func.isRequired,
+  size: string,
+};
 
 export default Button;
 
 const StyledButton = styled.button`
   height: 40px;
-  width: 150px;
+  width: ${(props) => props.size ?? "150px"};
   border: none;
   border-radius: 25px;
   background-color: #c69749;
@@ -25,3 +33,5 @@ const StyledButton = styled.button`
     opacity: 0.7;
   }
 `;
+
+StyledButton.propTypes = { size: string };
