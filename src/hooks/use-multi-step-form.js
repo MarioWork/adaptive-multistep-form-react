@@ -7,6 +7,9 @@ const Actions = {
     ANSWER: "Answer",
 }
 
+const GROUP_PREFIX = "group";
+const QUESTION_PREFIX = "question";
+
 const useMultiStepForm = ({ groups }) => {
 
     const initialState = { currentIndex: 0, answers: {} };
