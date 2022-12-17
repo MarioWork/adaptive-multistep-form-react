@@ -25,7 +25,6 @@ const useMultiStepForm = ({ groups }) => {
             case Actions.PREVIOUS:
                 return canPrevious(0, state.currentIndex) ? { ...state, currentIndex: state.currentIndex - 1 } : state;
             case Actions.ANSWER:
-                console.log(state);
                 return {
                     ...state,
                     answers: {
