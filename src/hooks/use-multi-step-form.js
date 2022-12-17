@@ -20,6 +20,21 @@ const useMultiStepForm = ({ groups }) => {
 
     const canPrevious = (min, currentIndex) => currentIndex - 1 >= min;
 
+    const updateStateWithNewAnswer = (state, { questionId, answer }) => {
+        const currentGroupKey = GROUP_PREFIX + groups[state.currentIndex].id;
+        const currentQuestionKey = QUESTION_PREFIX + questionId;
+        return {
+            ...state,
+            answers: {
+                ...state.answers,
+                [currentGroupKey]: {
+                    ...state.answers[currentGroupKey],
+                    [currentQuestionKey]: answer
+                }
+            }
+        };
+    };
+
     //TODO Cleanup spread objects
     const reducer = (state, { action, payload }) => {
         switch (action) {
@@ -28,16 +43,7 @@ const useMultiStepForm = ({ groups }) => {
             case Actions.PREVIOUS:
                 return canPrevious(0, state.currentIndex) ? { ...state, currentIndex: state.currentIndex - 1 } : state;
             case Actions.ANSWER:
-                return {
-                    ...state,
-                    answers: {
-                        ...state.answers,
-                        ["group" + groups[state.currentIndex].id]: {
-                            ...state.answers["group" + groups[state.currentIndex].id],
-                            ["question" + payload.questionId]: payload.answer
-                        }
-                    }
-                };
+                return updateStateWithNewAnswer(state, payload);
         }
     }
 
