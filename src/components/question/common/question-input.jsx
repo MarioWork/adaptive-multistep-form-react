@@ -6,6 +6,7 @@ import { onAnswerContext } from "../../form";
 const QuestionInput = ({ type, questionId }) => {
   const { onAnswer } = useContext(onAnswerContext);
 
+  //TODO use value from answers state
   return (
     <StyledInput
       type={type}
