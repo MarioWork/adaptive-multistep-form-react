@@ -1,10 +1,16 @@
 import React from "react";
-import { string, func } from "prop-types";
+import { string, func, bool } from "prop-types";
 import styled from "styled-components";
 
-const Button = ({ text, onClick, width, height }) => {
+const Button = ({ text, onClick, width, height, isSelected }) => {
   return (
-    <StyledButton onClick={onClick} width={width} height={height} value={text}>
+    <StyledButton
+      onClick={onClick}
+      width={width}
+      height={height}
+      value={text}
+      disabled={isSelected}
+    >
       {text}
     </StyledButton>
   );
@@ -15,6 +21,7 @@ Button.propTypes = {
   onClick: func.isRequired,
   size: string,
   height: string,
+  isSelected: bool,
 };
 
 export default Button;
@@ -33,9 +40,14 @@ const StyledButton = styled.button`
   :hover {
     opacity: 0.7;
   }
+
+  :disabled {
+    opacity: 0.4;
+  }
 `;
 
 StyledButton.propTypes = {
   width: string,
   height: string,
+  isSelected: bool,
 };

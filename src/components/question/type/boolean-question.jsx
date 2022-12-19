@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import QuestionSchema from "../../../schemas/question-prop-types";
 import QuestionTitle from "../common/question-title";
 import QuestionContainer from "../common/question-container";
@@ -12,10 +12,13 @@ const AnswerType = {
 };
 
 const BooleanQuestion = ({ question: { id, title } }) => {
+  const [isSelected, setIsSelected] = useState();
+
   const { onAnswer } = useContext(onAnswerContext);
 
   const onClick = ({ target: { value } }) => {
     onAnswer(id, value);
+    setIsSelected((prevValue) => !prevValue);
   };
 
   return (
@@ -26,13 +29,15 @@ const BooleanQuestion = ({ question: { id, title } }) => {
           text={AnswerType.YES}
           onClick={onClick}
           width="100px"
-          height="30px"
+          height="35px"
+          isSelected={isSelected}
         />
         <Button
           text={AnswerType.NO}
           onClick={onClick}
           width="100px"
-          height="30px"
+          height="35px"
+          isSelected={!isSelected}
         />
       </StyledButtonContainer>
     </QuestionContainer>
