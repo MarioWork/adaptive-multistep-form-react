@@ -7,29 +7,43 @@ import useMultiStepForm from "../hooks/use-multi-step-form";
 
 import Group from "./group";
 import Button from "./common/button";
+import Outro from "./outro";
+import Container from "../components/common/container";
 
 const AnswerContext = createContext();
 
 const Form = ({ form }) => {
-  const { group, onNext, onPrevious, onAnswer, currentGroupAnswers } =
-    useMultiStepForm(form);
+  const {
+    group,
+    onNext,
+    onPrevious,
+    onAnswer,
+    currentGroupAnswers,
+    isLastGroup,
+  } = useMultiStepForm(form);
+
+  if (isLastGroup) {
+    return <Outro outro={form.outro} />;
+  }
 
   return (
-    <StyledForm>
-      <header>
-        <h1>{form.title}</h1>
-        {form?.description && <h5>{form.description}</h5>}
-      </header>
-      <main>
-        <AnswerContext.Provider value={{ onAnswer, currentGroupAnswers }}>
-          <Group group={group} />
-        </AnswerContext.Provider>
-      </main>
-      <footer>
-        <Button onClick={onPrevious} text="Previous" />
-        <Button onClick={onNext} text="Next" />
-      </footer>
-    </StyledForm>
+    <Container>
+      <StyledForm>
+        <header>
+          <h1>{form.title}</h1>
+          {form?.description && <h5>{form.description}</h5>}
+        </header>
+        <main>
+          <AnswerContext.Provider value={{ onAnswer, currentGroupAnswers }}>
+            <Group group={group} />
+          </AnswerContext.Provider>
+        </main>
+        <footer>
+          <Button onClick={onPrevious} text="Previous" />
+          <Button onClick={onNext} text="Next" />
+        </footer>
+      </StyledForm>
+    </Container>
   );
 };
 
@@ -39,18 +53,8 @@ export { AnswerContext };
 export default Form;
 
 const StyledForm = styled.main`
-  width: 500px;
-  min-height: 600px;
-  max-height: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1em;
-  padding-top: 2em;
-  padding-bottom: 2em;
-  border-radius: 25px;
-  box-shadow: rgb(153 153 153 / 25%) 10px 0px 70px;
-  background: #bebebe;
+  height: 100%;
+  width: 100%;
 
   header {
     min-height: 10%;

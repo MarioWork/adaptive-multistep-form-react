@@ -58,7 +58,8 @@ const useMultiStepForm = ({ groups }) => {
         onNext: () => dispatch({ action: Actions.NEXT }),
         onAnswer: (questionId, answer) => dispatch({ action: Actions.ANSWER, payload: { questionId, answer } }),
         onPrevious: () => dispatch({ action: Actions.PREVIOUS }),
-        currentGroupAnswers: answers[GROUP_PREFIX + groups[currentIndex].id]
+        currentGroupAnswers: answers[GROUP_PREFIX + groups[currentIndex].id],
+        isLastGroup: currentIndex == groups.length - 1,
     };
 };
 
