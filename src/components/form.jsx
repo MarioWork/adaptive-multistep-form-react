@@ -11,7 +11,8 @@ import Button from "./common/button";
 const onAnswerContext = createContext();
 
 const Form = ({ form }) => {
-  const { group, onNext, onPrevious, onAnswer } = useMultiStepForm(form);
+  const { group, onNext, onPrevious, onAnswer, currentGroupAnswers } =
+    useMultiStepForm(form);
 
   return (
     <StyledForm>
@@ -20,7 +21,7 @@ const Form = ({ form }) => {
         {form?.description && <h5>{form.description}</h5>}
       </header>
       <main>
-        <onAnswerContext.Provider value={{ onAnswer }}>
+        <onAnswerContext.Provider value={{ onAnswer, currentGroupAnswers }}>
           <Group group={group} />
         </onAnswerContext.Provider>
       </main>
