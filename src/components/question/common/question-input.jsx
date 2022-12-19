@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { string, number } from "prop-types";
 import styled from "styled-components";
-import { onAnswerContext } from "../../form";
+import { AnswerContext } from "../../form";
 import { getValueFromObjectWithDynamicKey } from "../../../utils/get-value-from-object-with-dynamic-key";
 import { QUESTION_PREFIX } from "../../../utils/constants";
 
 const QuestionInput = ({ type, questionId }) => {
-  const { onAnswer, currentGroupAnswers } = useContext(onAnswerContext);
+  const { onAnswer, currentGroupAnswers } = useContext(AnswerContext);
   const currentQuestionKey = QUESTION_PREFIX + questionId;
 
   return (

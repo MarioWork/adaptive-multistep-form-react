@@ -4,7 +4,7 @@ import QuestionTitle from "../common/question-title";
 import QuestionContainer from "../common/question-container";
 import Button from "../../common/button";
 import styled from "styled-components";
-import { onAnswerContext } from "../../form";
+import { AnswerContext } from "../../form";
 
 const AnswerType = {
   YES: "yes",
@@ -14,7 +14,7 @@ const AnswerType = {
 const BooleanQuestion = ({ question: { id, title } }) => {
   const [isSelected, setIsSelected] = useState();
 
-  const { onAnswer } = useContext(onAnswerContext);
+  const { onAnswer } = useContext(AnswerContext);
 
   const onClick = ({ target: { value } }) => {
     onAnswer(id, value);

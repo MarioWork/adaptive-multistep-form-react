@@ -8,7 +8,7 @@ import useMultiStepForm from "../hooks/use-multi-step-form";
 import Group from "./group";
 import Button from "./common/button";
 
-const onAnswerContext = createContext();
+const AnswerContext = createContext();
 
 const Form = ({ form }) => {
   const { group, onNext, onPrevious, onAnswer, currentGroupAnswers } =
@@ -21,9 +21,9 @@ const Form = ({ form }) => {
         {form?.description && <h5>{form.description}</h5>}
       </header>
       <main>
-        <onAnswerContext.Provider value={{ onAnswer, currentGroupAnswers }}>
+        <AnswerContext.Provider value={{ onAnswer, currentGroupAnswers }}>
           <Group group={group} />
-        </onAnswerContext.Provider>
+        </AnswerContext.Provider>
       </main>
       <footer>
         <Button onClick={onPrevious} text="Previous" />
@@ -35,7 +35,7 @@ const Form = ({ form }) => {
 
 Form.propTypes = { form: formSchema };
 
-export { onAnswerContext };
+export { AnswerContext };
 export default Form;
 
 const StyledForm = styled.main`
