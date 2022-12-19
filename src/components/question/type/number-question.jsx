@@ -4,11 +4,11 @@ import QuestionInput from "../common/question-input";
 import QuestionContainer from "../common/question-container";
 import { QuestionType } from "../../../enum/question-types";
 
-const NumberQuestion = ({ question }) => {
+const NumberQuestion = ({ question: { id, title } }) => {
   return (
     <QuestionContainer>
-      <QuestionTitle title={question.title} />
-      <QuestionInput type={QuestionType.NUMBER} questionId={question.id} />
+      <QuestionTitle title={title} />
+      <QuestionInput type={QuestionType.NUMBER} questionId={id} />
     </QuestionContainer>
   );
 };
