@@ -1,17 +1,39 @@
-import React from "react";
+import { useContext } from "react";
 import QuestionSchema from "../../../schemas/question-prop-types";
 import QuestionTitle from "../common/question-title";
 import QuestionContainer from "../common/question-container";
 import Button from "../../common/button";
 import styled from "styled-components";
+import { onAnswerContext } from "../../form";
 
-const BooleanQuestion = ({ question }) => {
+const AnswerType = {
+  YES: "yes",
+  NO: "no",
+};
+
+const BooleanQuestion = ({ question: { id, title } }) => {
+  const { onAnswer } = useContext(onAnswerContext);
+
+  const onClick = ({ target: { value } }) => {
+    onAnswer(id, value);
+  };
+
   return (
     <QuestionContainer>
-      <QuestionTitle title={question.title} />
+      <QuestionTitle title={title} />
       <StyledButtonContainer>
-        <Button text="yes" onClick={() => {}} width="100px" height="30px" />
-        <Button text="no" onClick={() => {}} width="100px" height="30px" />
+        <Button
+          text={AnswerType.YES}
+          onClick={onClick}
+          width="100px"
+          height="30px"
+        />
+        <Button
+          text={AnswerType.NO}
+          onClick={onClick}
+          width="100px"
+          height="30px"
+        />
       </StyledButtonContainer>
     </QuestionContainer>
   );
