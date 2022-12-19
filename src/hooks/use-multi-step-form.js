@@ -1,5 +1,6 @@
 import { useReducer } from "react";
 import formSchema from "../schemas/form-prop-types";
+import { GROUP_PREFIX, QUESTION_PREFIX } from "../utils/constants";
 
 const Actions = {
     NEXT: "next",
@@ -7,16 +8,17 @@ const Actions = {
     ANSWER: "Answer",
 }
 
-const GROUP_PREFIX = "group";
-const QUESTION_PREFIX = "question";
-
 const useMultiStepForm = ({ groups }) => {
 
     const initialState = { currentIndex: 0, answers: {} };
 
 
-    const canNext = (max, { currentIndex, answers }) =>
-        currentIndex + 1 < max && answers.length == groups[currentIndex].questions.length;
+    const canNext = (max, { currentIndex, answers }) => {
+        const currentGroupKey = GROUP_PREFIX + groups[currentIndex].id;
+        const currentGroupAnswersCount = Object.keys(answers[currentGroupKey] ?? {})?.length;
+        const currentGroupQuestionsCount = groups[currentIndex].questions.length;
+        return currentIndex + 1 < max && currentGroupAnswersCount == currentGroupQuestionsCount;
+    };
 
     const canPrevious = (min, currentIndex) => currentIndex - 1 >= min;
 
@@ -46,13 +48,17 @@ const useMultiStepForm = ({ groups }) => {
         }
     }
 
-    const [state, dispatch] = useReducer(reducer, initialState);
+    const [{ answers, currentIndex }, dispatch] = useReducer(reducer, initialState);
 
+
+    /*     console.log({ answers, currentIndex });
+     */
     return {
-        group: groups[state.currentIndex],
+        group: groups[currentIndex],
         onNext: () => dispatch({ action: Actions.NEXT }),
         onAnswer: (questionId, answer) => dispatch({ action: Actions.ANSWER, payload: { questionId, answer } }),
         onPrevious: () => dispatch({ action: Actions.PREVIOUS }),
+        currentGroupAnswers: answers[GROUP_PREFIX + groups[currentIndex].id]
     };
 };
 
