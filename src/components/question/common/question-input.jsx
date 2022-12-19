@@ -2,14 +2,23 @@ import { useContext } from "react";
 import { string, number } from "prop-types";
 import styled from "styled-components";
 import { onAnswerContext } from "../../form";
+import { getValueFromObjectWithDynamicKey } from "../../../utils/get-value-from-object-with-dynamic-key";
+import { QUESTION_PREFIX } from "../../../utils/constants";
 
 const QuestionInput = ({ type, questionId }) => {
-  const { onAnswer } = useContext(onAnswerContext);
+  const { onAnswer, currentGroupAnswers } = useContext(onAnswerContext);
+  const currentQuestionKey = QUESTION_PREFIX + questionId;
 
   return (
     <StyledInput
       type={type}
       onChange={({ target }) => onAnswer(questionId, target.value)}
+      value={
+        getValueFromObjectWithDynamicKey(
+          currentGroupAnswers,
+          currentQuestionKey
+        ) ?? ""
+      }
     />
   );
 };
