@@ -35,7 +35,6 @@ const useMultiStepForm = ({ groups }) => {
         };
     };
 
-    //TODO Cleanup spread objects
     const reducer = (state, { action, payload }) => {
         switch (action) {
             case Actions.NEXT:
