@@ -70,6 +70,7 @@ const StyledOutro = styled.article`
     padding: 1em;
     text-align: center;
     gap: 10px;
+    transition: all 3s ease-in-out 3s;
 
     h1 {
       font-weight: 700;
@@ -85,12 +86,12 @@ const StyledOutro = styled.article`
     flex-direction: column;
     gap: 10px;
     width: 100%;
+    max-height: 80%;
     text-align: start;
     padding: 1em 2.7em 1em 2.7em;
-    max-height: 60%;
-    overflow-y: scroll;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    overflow-y: scroll;
 
     h3,
     h4 {
