@@ -7,6 +7,24 @@ import styled from "styled-components";
 const Outro = ({ outro: { title, description }, submitAnswers }) => {
   const [answers, setAnswers] = useState();
 
+  const convertAnswersToDomEls = (obj) => {
+    const firstLetterCapital = (str) =>
+      str.charAt(0).toUpperCase() + str.slice(1);
+
+    const domEls = [];
+    for (const prop in obj) {
+      if (typeof obj[prop] === "object") {
+        domEls.push(<h3 key={prop}>{firstLetterCapital(prop) + ":"}</h3>);
+        domEls.push(convertAnswersToDomEls(obj[prop]));
+        continue;
+      }
+      domEls.push(
+        <h4 key={prop}>{firstLetterCapital(prop) + ": " + obj[prop]}</h4>
+      );
+    }
+    return domEls;
+  };
+
   return (
     <Container>
       <StyledOutro>
@@ -14,13 +32,13 @@ const Outro = ({ outro: { title, description }, submitAnswers }) => {
           <h1>{title}</h1>
           <h4>{description}</h4>
         </header>
-        <main>{JSON.stringify(answers, null, 2)}</main>
+        {answers && <main>{answers}</main>}
         <footer>
           <Button
             text="Submit"
             onClick={() => {
               const answers = submitAnswers();
-              setAnswers(answers);
+              setAnswers(convertAnswersToDomEls(answers));
             }}
           />
         </footer>
@@ -39,6 +57,13 @@ Outro.propTypes = {
 export default Outro;
 
 const StyledOutro = styled.article`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  padding: 3em 1em 3em 1em;
+
   header {
     display: flex;
     flex-direction: column;
@@ -56,8 +81,25 @@ const StyledOutro = styled.article`
   }
 
   main {
-    max-height: 100%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    text-align: start;
+    padding: 1em 2.7em 1em 2.7em;
+    max-height: 60%;
+    overflow-y: scroll;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+
+    h3,
+    h4 {
+      width: 100%;
+    }
+
+    h3 {
+      font-weight: bold;
+    }
   }
 
   footer {
