@@ -16,7 +16,8 @@ export default App;
 
 const StyledContent = styled.div`
   width: 100vw;
-  height: 0px;
+  height: 100vh;
+  padding-top: 5em;
   display: flex;
   flex-direction: column;
   align-items: center;

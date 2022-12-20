@@ -80,17 +80,18 @@ const StyledForm = styled.main`
 
   main {
     width: 100%;
-    min-height: 85%;
-    max-height: 85%;
+    min-height: 80%;
+    max-height: 80%;
+    overflow-y: scroll;
   }
 
   footer {
     display: flex;
     justify-content: space-evenly;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     padding-bottom: 1em;
-    min-height: 10%;
-    max-height: 10%;
+    min-height: 15%;
+    max-height: 15%;
   }
 `;
