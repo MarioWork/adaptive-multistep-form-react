@@ -6,7 +6,7 @@
     "groups": [
       {
         "id": 1,
-        "title": "Users Name",
+        "title": "Basic Info",
         "description": "( Please answer the questions bellow )",
         "questions": [
           {
@@ -57,11 +57,15 @@
           },
           {
             "id": 7,
-            "title": "Have you finished HighSchool?",
+            "title": "Have you finished High School?",
             "type": "boolean"
           }
         ]
       }
-    ]
+    ],
+    "outro": {
+      "title": "Thank you for completing the form!",
+      "description": "Please press submit, to submit your answers!"
+    }
   }
 }
