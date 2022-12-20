@@ -5,6 +5,8 @@ import QuestionContainer from "../common/question-container";
 import Button from "../../common/button";
 import styled from "styled-components";
 import { AnswerContext } from "../../form";
+import { QUESTION_PREFIX } from "../../../utils/constants";
+import { stringToBool } from "../../../utils/string-to-bool";
 
 const AnswerType = {
   YES: "yes",
@@ -12,10 +14,14 @@ const AnswerType = {
 };
 
 const BooleanQuestion = ({ question: { id, title } }) => {
-  const [isSelected, setIsSelected] = useState();
+  const { onAnswer, currentGroupAnswers } = useContext(AnswerContext);
+  const currentAnswer =
+    currentGroupAnswers != undefined
+      ? stringToBool(currentGroupAnswers[QUESTION_PREFIX + id])
+      : undefined;
 
-  const { onAnswer } = useContext(AnswerContext);
-
+  const [isSelected, setIsSelected] = useState(currentAnswer ?? undefined);
+  console.log(isSelected);
   const onClick = ({ target: { value } }) => {
     onAnswer(id, value);
     setIsSelected((prevValue) => !prevValue);
@@ -30,14 +36,14 @@ const BooleanQuestion = ({ question: { id, title } }) => {
           onClick={onClick}
           width="100px"
           height="35px"
-          isSelected={isSelected}
+          isSelected={isSelected === undefined ? false : !isSelected}
         />
         <Button
           text={AnswerType.NO}
           onClick={onClick}
           width="100px"
           height="35px"
-          isSelected={!isSelected}
+          isSelected={isSelected === undefined ? false : isSelected}
         />
       </StyledButtonContainer>
     </QuestionContainer>
