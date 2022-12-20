@@ -58,6 +58,5 @@ const StyledGroup = styled.article`
     display: flex;
     padding: 0.5em;
     flex-direction: column;
-    overflow-y: auto;
   }
 `;
