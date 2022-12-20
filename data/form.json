@@ -21,11 +21,10 @@
             "description": "(Please enter only your last name)",
             "type": "text"
           },
-          {
-            "id": 3,
-            "title": "When is your birth date?",
-            "type": "date"
-          }
+          { "id": 3, "title": "What is your mothers name?", "type": "text" },
+          { "id": 4, "title": "What is your fathers name?", "type": "text" },
+          { "id": 5, "title": "What is your favorite color?", "type": "text" },
+          { "id": 6, "title": "Do you play sports?", "type": "boolean" }
         ]
       },
       {
