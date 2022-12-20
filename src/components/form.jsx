@@ -8,7 +8,7 @@ import useMultiStepForm from "../hooks/use-multi-step-form";
 import Group from "./group";
 import Button from "./common/button";
 import Outro from "./outro";
-import Container from "../components/common/container";
+import Container from "./common/container";
 
 const AnswerContext = createContext();
 
@@ -20,10 +20,11 @@ const Form = ({ form }) => {
     onAnswer,
     currentGroupAnswers,
     isLastGroup,
+    submitAnswers,
   } = useMultiStepForm(form);
 
   if (isLastGroup) {
-    return <Outro outro={form.outro} />;
+    return <Outro outro={form.outro} submitAnswers={submitAnswers} />;
   }
 
   return (
