@@ -12,7 +12,6 @@ const useMultiStepForm = ({ groups }) => {
 
     const initialState = { currentIndex: 0, answers: {} };
 
-
     const canNext = (max, { currentIndex, answers }) => {
         const currentGroupKey = GROUP_PREFIX + groups[currentIndex].id;
         const currentGroupAnswersCount = Object.keys(answers[currentGroupKey] ?? {})?.length;
@@ -50,9 +49,6 @@ const useMultiStepForm = ({ groups }) => {
 
     const [{ answers, currentIndex }, dispatch] = useReducer(reducer, initialState);
 
-
-    /*     console.log({ answers, currentIndex });
-     */
     return {
         group: groups[currentIndex],
         onNext: () => dispatch({ action: Actions.NEXT }),
@@ -60,6 +56,7 @@ const useMultiStepForm = ({ groups }) => {
         onPrevious: () => dispatch({ action: Actions.PREVIOUS }),
         currentGroupAnswers: answers[GROUP_PREFIX + groups[currentIndex].id],
         isLastGroup: currentIndex == groups.length - 1,
+        submitAnswers: () => { console.log(answers); return answers; }
     };
 };
 
