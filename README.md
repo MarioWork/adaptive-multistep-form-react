@@ -84,6 +84,14 @@ This project consists of a multi-step form that adapts itself by reading a struc
 
 ## UI Images
 
+<img width="1716" alt="Screenshot 2022-12-21 at 00 34 00" src="https://user-images.githubusercontent.com/47696178/208800682-aaf24150-f151-4b37-912f-a4f48f6a7728.png">
+<img width="1728" alt="Screenshot 2022-12-21 at 00 34 20" src="https://user-images.githubusercontent.com/47696178/208800700-c5814dac-b785-469f-95ee-9326d7fe582b.png">
+<img width="1728" alt="Screenshot 2022-12-21 at 00 34 35" src="https://user-images.githubusercontent.com/47696178/208800716-19f546bf-5f38-46e3-a09b-d09b24d947c8.png">
+<img width="1728" alt="Screenshot 2022-12-21 at 00 43 47" src="https://user-images.githubusercontent.com/47696178/208800829-f838c4a9-e107-462d-9a92-d33c240a452e.png">
+
+
+
+
 ## How to run this project
 
 ```bash
