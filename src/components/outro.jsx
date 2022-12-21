@@ -72,6 +72,15 @@ const StyledOutro = styled.article`
     gap: 10px;
     transition: all 3s ease-in-out 3s;
 
+    h1,
+    h4 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     h1 {
       font-weight: 700;
     }
@@ -96,6 +105,11 @@ const StyledOutro = styled.article`
     h3,
     h4 {
       width: 100%;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     h3 {
