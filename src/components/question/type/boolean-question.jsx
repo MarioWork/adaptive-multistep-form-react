@@ -36,14 +36,14 @@ const BooleanQuestion = ({ question: { id, title } }) => {
           onClick={onClick}
           width="100px"
           height="35px"
-          isSelected={isSelected === undefined ? false : !isSelected}
+          disabled={isSelected === undefined ? false : !isSelected}
         />
         <Button
           text={AnswerType.NO}
           onClick={onClick}
           width="100px"
           height="35px"
-          isSelected={isSelected === undefined ? false : isSelected}
+          disabled={isSelected === undefined ? false : isSelected}
         />
       </StyledButtonContainer>
     </QuestionContainer>

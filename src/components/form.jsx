@@ -21,7 +21,10 @@ const Form = ({ form }) => {
     currentGroupAnswers,
     isLastGroup,
     submitAnswers,
+    canNext,
   } = useMultiStepForm(form);
+
+  console.log(canNext);
 
   if (isLastGroup) {
     return <Outro outro={form.outro} submitAnswers={submitAnswers} />;
@@ -41,7 +44,7 @@ const Form = ({ form }) => {
         </main>
         <footer>
           <Button onClick={onPrevious} text="Previous" />
-          <Button onClick={onNext} text="Next" />
+          <Button onClick={onNext} disabled={!canNext} text="Next" />
         </footer>
       </StyledForm>
     </Container>

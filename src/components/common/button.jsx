@@ -2,14 +2,14 @@ import React from "react";
 import { string, func, bool } from "prop-types";
 import styled from "styled-components";
 
-const Button = ({ text, onClick, width, height, isSelected }) => {
+const Button = ({ text, onClick, width, height, disabled }) => {
   return (
     <StyledButton
       onClick={onClick}
       width={width}
       height={height}
       value={text}
-      disabled={isSelected}
+      disabled={disabled}
     >
       {text}
     </StyledButton>
@@ -21,7 +21,7 @@ Button.propTypes = {
   onClick: func.isRequired,
   size: string,
   height: string,
-  isSelected: bool,
+  disabled: bool,
 };
 
 export default Button;
@@ -43,6 +43,7 @@ const StyledButton = styled.button`
 
   :disabled {
     opacity: 0.4;
+    cursor: auto;
   }
 `;
 

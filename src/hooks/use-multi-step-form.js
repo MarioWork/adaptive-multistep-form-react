@@ -12,14 +12,14 @@ const useMultiStepForm = ({ groups }) => {
 
     const initialState = { currentIndex: 0, answers: {} };
 
-    const canNext = (max, { currentIndex, answers }) => {
+    const canNext = ({ currentIndex, answers }) => {
         const currentGroupKey = GROUP_PREFIX + groups[currentIndex].id;
         const currentGroupAnswersCount = Object.keys(answers[currentGroupKey] ?? {})?.length;
         const currentGroupQuestionsCount = groups[currentIndex].questions.length;
-        return currentIndex + 1 < max && currentGroupAnswersCount == currentGroupQuestionsCount;
+        return currentIndex + 1 < groups.length && currentGroupAnswersCount == currentGroupQuestionsCount;
     };
 
-    const canPrevious = (min, currentIndex) => currentIndex - 1 >= min;
+    const canPrevious = (currentIndex) => currentIndex - 1 >= 0;
 
     const updateStateWithNewAnswer = (state, { questionId, answer }) => {
         const currentGroupKey = GROUP_PREFIX + groups[state.currentIndex].id;
@@ -39,9 +39,9 @@ const useMultiStepForm = ({ groups }) => {
     const reducer = (state, { action, payload }) => {
         switch (action) {
             case Actions.NEXT:
-                return canNext(groups.length, state) ? { ...state, currentIndex: state.currentIndex + 1 } : state;
+                return canNext(state) ? { ...state, currentIndex: state.currentIndex + 1 } : state;
             case Actions.PREVIOUS:
-                return canPrevious(0, state.currentIndex) ? { ...state, currentIndex: state.currentIndex - 1 } : state;
+                return canPrevious(state.currentIndex) ? { ...state, currentIndex: state.currentIndex - 1 } : state;
             case Actions.ANSWER:
                 return updateStateWithNewAnswer(state, payload);
         }
@@ -56,7 +56,8 @@ const useMultiStepForm = ({ groups }) => {
         onPrevious: () => dispatch({ action: Actions.PREVIOUS }),
         currentGroupAnswers: answers[GROUP_PREFIX + groups[currentIndex].id],
         isLastGroup: currentIndex == groups.length - 1,
-        submitAnswers: () => { console.log(answers); return answers; }
+        submitAnswers: () => { console.log(answers); return answers; },
+        canNext: canNext({ currentIndex, answers })
     };
 };
 
