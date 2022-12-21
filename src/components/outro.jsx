@@ -105,11 +105,6 @@ const StyledOutro = styled.article`
     h3,
     h4 {
       width: 100%;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     h3 {
